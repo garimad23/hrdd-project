@@ -12,3 +12,114 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model Admin {
+  adminId               String              @id @default(cuid())  /// Admin internal id.
+  email                 String              @unique        /// User email for registering and login use.
+  contactName           String?                         /// Admin Contact Name.
+  password              String                          /// User password stored in the database.
+  image                 String?                         /// Link to the user avatar.
+  isActive              Boolean               @default(true)
+  createdAt             DateTime              @default(now())
+  updatedAt             DateTime              @updatedAt
+}
+
+model User{
+  UserId                String               @id ///user id generated
+ firstname              String
+ lastname               String
+ emailid                String
+ contactnumber         Int                  @unique
+ gender                 String               
+ organisationid           String             
+ createdAt              DateTime
+ updatedAt              DateTime
+
+
+}
+model Organisation{
+  organisationId       String               @id @default(cuid()  ) /////organisation id)
+  organistaionName     String    
+  constactnumber       String
+  emailId               String
+  district              String
+  city                 String
+  country              String
+  createdAt            DateTime
+  updatedAt            DateTime
+}
+
+model  Greivance{
+greivanceId            String                @id @default(cuid()) //primary key//id genearted at th time of redressal
+userID                 String 
+organisationId          String               
+greivanceDate          DateTime
+country                String
+city                   String
+document               String
+description             String
+image                    String
+voice                    String
+video                  String
+greivanceType          String                                 ///////open ,lodged,closed,reopen
+authenticationStatus    String
+authenticationFindings   String
+authenticationDOCUMENT   String
+priority                     String
+severity                   String                            /////////////critical
+geography                String
+type                 String
+timeline           DateTime
+isValid                Boolean
+pocId                         String
+pocfindings                  String
+pocImages                    String
+
+invstigationOffcerId            String
+investigationFindings            String
+investigationDocuments            String
+
+actionPlan                        String
+actionplanAttachmenets            String
+ 
+GIRreport                       String
+GIRAttachments                     String
+
+createdAt                DateTime
+updatedAt                    DateTime
+}
+
+
+model  pocId {
+  id                    String          @id @unique
+  firstname           String
+  lastname           String
+  countrycode            String
+  city                  String
+  emailId                  String
+  gender                   String
+
+  
+}
+model investigationgOFFICER{
+   id                    String          @id @unique
+  firstname           String
+  lastname           String
+  countrycode            String
+  city                  String
+  emailId                  String
+  gender                   String
+}
+
+
+model UserGreivanceRecord  {
+  greivancedId            String                 @id  @default(cuid())
+  firstname                String
+  lastname            String
+  image               String
+  imageType           String?
+  userId              String
+  createdAt           DateTime                @default(now())
+  updatedAt           DateTime                @updatedAt
+}
+
+
