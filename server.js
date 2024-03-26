@@ -31,7 +31,7 @@ const slowDown = require("express-slow-down");
 //const csurf =  require('csurf');
 
 // import all routes
-const router = require("./routes")
+////const router = require("./routes")
 
 // extract global config
 const config = global.config;
@@ -40,7 +40,7 @@ const config = global.config;
 const { dbConnect } = require("./config/db.config.js");
 
 // miscellaneous-controls to set request and response format
-const miscControls = require("./controllers/miscController");
+////const miscControls = require("./controllers/miscController");
 
 // Acessing the environment variable...
 dotenv.config();
